@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="Květinová síň Bromelia v Křemži">
+  <meta name="author" content="svarnyjunak">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="box">
+    <h1 id="heading">Květinová síň Bromelia</h1>
+
+    <div class="clearfix">
+      <div id="we-offer" class="info">
+        <h2>Nabízíme</h2>
+        <ul>
+          <li>Řezané květiny</li>
+          <li>Hrnkové květiny</li>
+          <li>Umělé květiny</li>
+          <li>Sušina</li>
+          <li>Ovocné a okrasné stromy a keře</li>
+          <li>Hnojiva, substráty</li>
+          <li>Postřiky proti chorobám a škůdcům</li>
+          <li>Květníky, obaly</li>
+        </ul>
+      </div>
+
+      <div id="arrangement" class="info">
+        <h2>Aranžování</h2>
+        <ul>
+          <li>Svatební</li>
+          <li>Smuteční</li>
+          <li>Vánoční</li>
+          <li>Velikonoční</li>
+          <li>a jiná příležitostní vazba</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <div id="map" class="info"></div>
+
+      <div id="contact" class="info">
+        <h2>Kontakt</h2>
+        <h3>Adresa</h3>
+        <p>
+          Květinová síň Bromelia
+          <br> Jana Bartošová
+          <br> Náměstí T.G.M. 7
+          <br> Křemže 382 03
+          <br> telefon 380 741 729 e-mail bromelia@centrum.cz
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://api.mapy.cz/loader.js"></script>
+  <script>
+    Loader.load();
+  </script>
+  <script>
+    var center = SMap.Coords.fromWGS84(14.305459019923504, 48.906060382396056);
+    var mapa = new SMap(JAK.gel("map"), center, 17);
+    mapa.addDefaultLayer(SMap.DEF_BASE).enable();
+    var l = [];
+    for(var i = 1; i < l.length; i++) {
+        mapa.addDefaultLayer(l[i]).enable();
+    };
+    var layer = new SMap.Layer.Marker()
+    mapa.addLayer(layer).enable()
+    var mCoord = SMap.Coords.fromWGS84(14.305459019923504,48.906060382396056);
+    var mOpt = {
+        anchor: {left:14, top:49},
+        url:SMap.CONFIG.img + "/marker/balloon-3.png"
+     }
+    var marker = new SMap.Marker(mCoord,"MyMarker", mOpt);
+    layer.addMarker(marker);
+    var overview = new SMap.Control.Overview();
+    mapa.addControl(overview);
+    var scale = new SMap.Control.Scale();
+    mapa.addControl(scale, {left:"8px", bottom:"25px"});
+    var msOpt = SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM;
+    var mouse = new SMap.Control.Mouse(msOpt);
+    mapa.addControl(mouse);
+    var keyboard = new SMap.Control.Keyboard(SMap.KB_PAN | SMap.KB_ZOOM);
+    mapa.addControl(keyboard);
+    var selection = new SMap.Control.Selection(2);
+    mapa.addControl(selection);
+    var zn = new SMap.Control.ZoomNotification();
+    mapa.addControl(zn);
+    var zoomOpt = {showZoomMenu:false};
+    var zoom = new SMap.Control.Zoom(null,{titles:["Přiblížit", "Oddálit"], showZoomMenu:false});
+    mapa.addControl(zoom, {right:"2px", top:"10x"});
+    var lnt = "Zobrazit na mapy.cz";
+    var lnd = JAK.mel("a", {href:"http://mapy.cz/s/mKpt", target:"_blank", innerHTML:lnt});
+    lnd.style.cssText = "position:absolute;left:8px; bottom:54px;"+
+    "display:block; padding:4px 8px; background-color:#fff; border:medium none;"+
+    "border-radius:3px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);"+
+    "text-decoration:none; color:#6b7580;";
+    mapa.getContainer().appendChild(lnd);
+  </script>
+</body>
+
+</html>
