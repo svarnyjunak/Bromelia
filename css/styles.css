@@ -1,9 +1,5 @@
 html { 
-  background: url(../images/wallpaper.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: saddlebrown;
 }
 
 body {
@@ -12,67 +8,145 @@ body {
 
 h1#heading {
   font-size: 55px;
-   padding-top: 0.5em;
-   text-align: center;
+  padding-top: 0.5em;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 0.2em;
 }
 
 ul {
   padding: 0 1em;
+  margin: 0;
+}
+
+.box {
+  margin: 0 auto;
+  max-width: 800px;
+  
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
+  background: rgba(255, 255, 255, .8);
+   
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
 }
 
 .info {
-   padding-left: 1em;
-   margin: 1em;
-   width: 20em;
+  margin: 0 auto;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-.box{
-   margin: 4em;
-   width: 47em;
-  
-   -webkit-border-radius: 15px;
-   -moz-border-radius: 15px;
-   border-radius: 15px;
-   background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
-   background: rgba(255, 255, 255, .8);
-   
-   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
-   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
-   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
+#opening-hours th {
+  padding-right: 1em;
 }
 
-.clear{
-  clear:both;
-}
+#map { 
+  height: 400px;
 
-.clearfix:after { 
-   content: "."; 
-   visibility: hidden; 
-   display: block; 
-   height: 0; 
-   clear: both;
-}
-
-#we-offer{
-  float:left; 
-}
-
-#arrangement {
-  float: right;
-}
-
-#contact{
-  float: right;
-}
-
-#map {
-  float:left; 
-  
-  width: 18em;
-  height: 18em;
-  
-  border: 10px solid white;
+  border: 10px solid transparent;
   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
+
+@media screen and (min-width: 100px) {
+  html {
+    background: url(../images/wallpaper-portrait.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  .box{
+    margin-bottom: 300px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  html {
+    background: url(../images/wallpaper-landscape.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  .box {
+    margin: 0;
+  }
+  
+  .info h2 {
+    vertical-align: top;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  .clearfix:after { 
+    content: "."; 
+    visibility: hidden; 
+    display: block; 
+    height: 0; 
+    clear: both;
+  }
+
+  #we-offer {
+    float: left;
+  }
+  
+  #arrangement {
+    float: left;
+  }
+  
+  #map {
+    margin-top: 4em;
+    height: 200px;
+  }
+}
+
+/*
+@media screen and (min-width: 800px) {
+  html {
+    background: url(../images/wallpaper-landscape.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+    
+  #we-offer{
+    float:left; 
+  }
+
+  #arrangement {
+    float: right;
+  }
+
+  #contact{
+    float: right;
+  }
+  
+  #map {
+    float:left;
+  }
+  
+  .clear{
+    clear:both;
+  }
+
+  .clearfix:after { 
+     content: "."; 
+    visibility: hidden; 
+    display: block; 
+    height: 0; 
+    clear: both;
+  }
+}
+*/
