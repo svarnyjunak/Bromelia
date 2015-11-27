@@ -13,12 +13,16 @@ h1#heading {
 }
 
 h2 {
-  margin-bottom: 0.2em;
+  margin: 0;
 }
 
 ul {
   padding: 0 1em;
   margin: 0;
+}
+
+address {
+  font-style: normal;
 }
 
 .box {
@@ -36,8 +40,9 @@ ul {
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
 }
 
-.info {
+.info { 
   margin: 0 auto;
+  padding-top: 2em;
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -96,12 +101,9 @@ ul {
     clear: both;
   }
 
-  #we-offer {
+  #opening-hours {
     float: left;
-  }
-  
-  #arrangement {
-    float: left;
+    width: 50%;
   }
   
   #map {
