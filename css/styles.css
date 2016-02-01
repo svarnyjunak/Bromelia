@@ -76,15 +76,7 @@ address {
   }
 }
 
-@media screen and (min-width: 800px) {
-  html {
-    background: url(../images/wallpaper-landscape.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  
+@media screen and (min-width: 800px) { 
   .box {
     margin: 0 0 0 10%;
   }
@@ -111,5 +103,25 @@ address {
   #map {
     margin-top: 4em;
     height: 200px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  html {
+    background: url(../images/wallpaper-w1024.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  html {
+    background: url(../images/wallpaper.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 }
