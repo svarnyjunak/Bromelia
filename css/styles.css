@@ -111,7 +111,27 @@ address {
 
 @media screen and (min-width: 800px) and (max-width: 1024px) {
   html {
-    background: url(../images/wallpaper-w1024.jpg) no-repeat center center fixed;
+    background: url(../images/wallpaper-1024.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  html {
+    background: url(../images/wallpaper-1280.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1920px) {
+  html {
+    background: url(../images/wallpaper-1920.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

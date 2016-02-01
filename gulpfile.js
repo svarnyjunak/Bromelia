@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     imagemin = require('gulp-imagemin'),
-    imageResize = require('gulp-image-resize'),
+    responsive = require('gulp-responsive'),
     livereload = require('gulp-livereload'),
     cssFilter = ['css/**/*.css', '!css/**/*.min.css'];
 
@@ -20,7 +20,31 @@ gulp.task('images', function() {
   return gulp.src('images/wallpaper.jpg')
     .pipe(imagemin(imageMinOptions))
     .pipe(gulp.dest('images'))
-    .pipe(notify({ message: 'Images task complete' }));
+    .pipe(notify({ message: 'Image minimized' }))
+    .pipe(responsive({
+        '**/*.*': [
+            {
+                width: 1024,
+                rename: {
+                     suffix: '-1024'
+                }
+             },
+             {
+                width: 1280,
+                rename: {
+                     suffix: '-1280'
+                }
+             },
+             {
+                width: 1920,
+                rename: {
+                     suffix: '-1920'
+                }
+             }
+         ]                 
+    }))
+    .pipe(imagemin(imageMinOptions))
+    .pipe(gulp.dest('images'));
 });
 
 gulp.task('default', function() {
