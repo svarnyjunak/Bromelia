@@ -29,6 +29,5 @@ gulp.task('default', function() {
 
 gulp.task('watch', function() {
     gulp.watch(cssFilter, ['styles']);
-    livereload.listen();
     gulp.watch(['css/**']).on('change', livereload.changed);
 });
