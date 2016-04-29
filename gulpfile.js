@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
+    stylelint = require('gulp-stylelint'),
     autoprefixer = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
@@ -11,6 +12,10 @@ var gulp = require('gulp'),
 gulp.task('styles', function() {
   return gulp.src(cssFilter)
     .pipe(rename({ suffix: '.min' }))
+    .pipe(stylelint({
+      failAfterError: false,
+      reporters: [{formatter: 'string', console: true}]
+    }))
     .pipe(autoprefixer({browsers: ['> 1% in CZ']}))
     .pipe(cssnano())
     .pipe(gulp.dest('css/'))
