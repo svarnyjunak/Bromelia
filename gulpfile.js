@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
+    autoprefixer = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     imagemin = require('gulp-imagemin'),
@@ -10,6 +11,7 @@ var gulp = require('gulp'),
 gulp.task('styles', function() {
   return gulp.src(cssFilter)
     .pipe(rename({ suffix: '.min' }))
+    .pipe(autoprefixer({browsers: ['> 1% in CZ']}))
     .pipe(cssnano())
     .pipe(gulp.dest('css/'))
     .pipe(notify({ message: 'Styles minification complete' }));
