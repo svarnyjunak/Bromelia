@@ -65,8 +65,6 @@ gulp.task('watch', function() {
     gulp.watch(['css/**']).on('change', livereload.changed);
 });
 
-console.log(process.env.BROMELIA_USER);
-
 gulp.task('deploy', function() {
     return gulp.src(['*.html','**/*.min.css'])
 		.pipe(ftp({
