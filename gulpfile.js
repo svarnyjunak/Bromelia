@@ -1,4 +1,6 @@
 var gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    ftp = require('gulp-ftp'),
     cssnano = require('gulp-cssnano'),
     stylelint = require('gulp-stylelint'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -61,4 +63,16 @@ gulp.task('default', function() {
 gulp.task('watch', function() {
     gulp.watch(cssFilter, ['styles']);
     gulp.watch(['css/**']).on('change', livereload.changed);
+});
+
+console.log(process.env.BROMELIA_USER);
+
+gulp.task('deploy', function() {
+    return gulp.src(['*.html','**/*.min.css'])
+		.pipe(ftp({
+			host: 'bromelia.prodejce.cz',
+			user: process.env.BROMELIA_USER,
+			pass: process.env.BROMELIA_PASSWORD,
+		}))
+		.pipe(gutil.noop());
 });
